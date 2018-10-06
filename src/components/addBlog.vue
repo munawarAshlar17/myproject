@@ -3,32 +3,35 @@
         <h2>Add New Blog Post</h2>
         <form v-if="!submitted">
             <label>Blog Title: </label>
-            <input type="text" v-model.lazy="blog.title" required/>
+            <input class="form-control" type="text" v-model.lazy="blog.title" required/>
             <label>Blog Text:</label>
-            <textarea v-model.lazy="blog.content"></textarea>
+            <textarea class="form-control" v-model.lazy="blog.content"></textarea>
             <div id="checkboxes">
 
                 <p>Blog Categories:</p>
                 <label>Ninjas</label>
-                <input type="checkbox" value="ninjas" v-model="blog.categories"/>
+                <input  type="checkbox" value="ninjas" v-model="blog.categories"/>
 
                 <label>Mario</label>
-                <input type="checkbox" value="mario" v-model="blog.categories"/>
+                <input  type="checkbox" value="mario" v-model="blog.categories"/>
 
                 <label>Wizards</label>
-                <input type="checkbox" value="wizards" v-model="blog.categories"/>
+                <input type="checkbox"  value="wizards" v-model="blog.categories"/>
 
                 <label>Cheese</label>
                 <input type="checkbox" value="cheese" v-model="blog.categories"/>
 
             </div>
-            <select v-model="blog.author">
+            <div class="form-group ">
+            <select class="form-control" v-model="blog.author">
                 <option v-for="author in authors">
                     {{author}}
 
                 </option>
             </select>
-            <button v-on:click.prevent="post">Add Post</button>
+            </div>
+            &nbsp;
+            <button class="btn btn-primary" v-on:click.prevent="post">Add Post</button>
 
         </form>
         <div v-if="submitted">
